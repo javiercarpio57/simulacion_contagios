@@ -5,17 +5,37 @@ using UnityEngine;
 public class BrownianMovement : MonoBehaviour
 {
     public Vector3 moveDirection;
-    public float speed = 0.35f;
+    public float speed = 0.25f;
+    public float rateContagio = 0.05f;
+
+    private Rigidbody rb;
+
+    private Person me;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         moveDirection = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        me = GetComponent<Person>();
     }
 
+    /*
     private void Update()
     {
-        transform.Translate(moveDirection * Time.deltaTime * speed);
+        if (me.status != PersonStatus.DIED)
+        {
+            transform.Translate(moveDirection * Time.deltaTime);
+        }
+    }
+    */
+
+    private void FixedUpdate()
+    {
+        if (me.status != PersonStatus.DIED)
+        {
+            rb.velocity = moveDirection * speed;
+        }
     }
 
 
@@ -38,6 +58,13 @@ public class BrownianMovement : MonoBehaviour
         var person = collision.gameObject.GetComponent<Person>();
         if (person != null)
         {
+            if ((person.status == PersonStatus.SICK) && (me.status == PersonStatus.HEALTHY))
+            {
+                if (Random.value < rateContagio)
+                {
+                    me.ChangeStatus(PersonStatus.SICK);
+                }
+            }
             moveDirection = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
         }
     }

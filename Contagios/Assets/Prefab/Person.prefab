@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1303200925369350476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.24662909, y: 0.3, z: 0.66531944}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,6 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccc14c019785ce469bebc17e19651bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
+  sickMaterial: {fileID: 2100000, guid: c909638a0594a864192a866d9ed6b225, type: 2}
+  healthyMaterial: {fileID: 2100000, guid: 829c6c3b6f740a04085c01c263ab53d7, type: 2}
+  inTreatmentMaterial: {fileID: 2100000, guid: b3c48be63c3fd004a811343483303afa, type: 2}
+  diedMaterial: {fileID: 2100000, guid: c1b3c6f68f551ab4893ab394fea70856, type: 2}
+  gameManager: {fileID: 9118430321075293377, guid: ffd718585712ebf438bf5a1d6ad0912d,
+    type: 3}
 --- !u!114 &1303200925369350483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 0, z: 0}
-  speed: 0.35
+  speed: 0.5
+  rateContagio: 0.05
 --- !u!135 &1303200925369350479
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -135,6 +143,6 @@ Rigidbody:
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 2
