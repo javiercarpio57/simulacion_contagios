@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int CantidadPersonas = 100;
+    public int CantidadPersonas = 500;
+
     public Person person;
     public int LeftWall;
     public int RightWall;

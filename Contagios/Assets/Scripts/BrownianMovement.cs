@@ -20,21 +20,15 @@ public class BrownianMovement : MonoBehaviour
         me = GetComponent<Person>();
     }
 
-    /*
-    private void Update()
-    {
-        if (me.status != PersonStatus.DIED)
-        {
-            transform.Translate(moveDirection * Time.deltaTime);
-        }
-    }
-    */
-
     private void FixedUpdate()
     {
-        if (me.status != PersonStatus.DIED)
+        if ((me.status == PersonStatus.HEALTHY) || (me.status == PersonStatus.SICK) || (me.status == PersonStatus.RECOVERED))
         {
             rb.velocity = moveDirection * speed;
+        }
+        else
+        {
+            rb.velocity = moveDirection * 0;
         }
     }
 
@@ -58,7 +52,7 @@ public class BrownianMovement : MonoBehaviour
         var person = collision.gameObject.GetComponent<Person>();
         if (person != null)
         {
-            if ((person.status == PersonStatus.SICK) && (me.status == PersonStatus.HEALTHY))
+            if (((person.status == PersonStatus.SICK) || (person.status == PersonStatus.TREATMENT)) && (me.status == PersonStatus.HEALTHY))
             {
                 if (Random.value < rateContagio)
                 {
