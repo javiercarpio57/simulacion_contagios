@@ -13,7 +13,7 @@ public enum PersonStatus
 
 public class Person : MonoBehaviour
 {
-    public float tiempoEnHospital = 30f;
+    public float tiempoEnHospital = 25f;
     public PersonStatus status = PersonStatus.HEALTHY;
 
     public Material sickMaterial;

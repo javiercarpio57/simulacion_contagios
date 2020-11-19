@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int CantidadPersonas = 500;
+    public int CantidadPersonas = 1000;
 
     public Person person;
-    public int LeftWall;
-    public int RightWall;
-    public int DownWall;
-    public int UpWall;
+    public int LeftWall = -10;
+    public int RightWall = 10;
+    public int DownWall = -6;
+    public int UpWall = 6;
 
     private Person last;
 

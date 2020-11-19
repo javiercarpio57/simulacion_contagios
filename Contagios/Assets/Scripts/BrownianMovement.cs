@@ -5,7 +5,7 @@ using UnityEngine;
 public class BrownianMovement : MonoBehaviour
 {
     public Vector3 moveDirection;
-    public float speed = 0.25f;
+    public float speed = 0.5f;
     public float rateContagio = 0.05f;
 
     private Rigidbody rb;
