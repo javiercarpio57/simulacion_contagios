@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BrownianMovement : MonoBehaviour
 {
     public Vector3 moveDirection;
-    public float speed = 0.5f;
-    public float rateContagio = 0.05f;
+    public float speed = 0.25f;
+    public float rateContagio = 0.0025f;
 
     private Rigidbody rb;
 
